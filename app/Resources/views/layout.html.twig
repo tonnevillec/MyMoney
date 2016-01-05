@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>{% block title %}MyMoney{% endblock %}</title>
+
+    {% block stylesheets %}
+      <!-- Bootstrap core CSS -->    
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+        <!-- Custom styles for this template -->
+    	{% stylesheets 
+    		'@MYMoneyBundle/Resources/public/css/dashboard.css'
+            '@MYMoneyBundle/Resources/public/css/evenlist.css'
+            '@MYMoneyBundle/Resources/public/css/breadcrumb.css' %}
+    		<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    	{% endstylesheets %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block navbar %}
+    {% endblock %}
+
+    <div class="container-fluid">
+        <div class="row">
+            {% block sidebar %}
+            {% endblock %}
+
+            {% block body %}
+            {% endblock %}
+        </div>
+    </div>
+
+    {% block javascripts %}
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        
+    	{% javascripts 
+    		'@MYMoneyBundle/Resources/public/js/jquery.min.js'
+    		'@MYMoneyBundle/Resources/public/js/holder.min.js'
+    		'js/ie10-viewport-bug-workaround.js' %}
+    		<script type="text/javascript" src="{{ asset_url }}"></script>
+    	{% endjavascripts %} 
+    {% endblock %}
+</body>
+</html>

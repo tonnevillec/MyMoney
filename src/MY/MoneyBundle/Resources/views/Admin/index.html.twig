@@ -1,0 +1,13 @@
+{% extends "MYMoneyBundle:Admin:layout.html.twig" %}
+
+{% block body_admin %}
+	<div class="row">
+		<div class="[ col-xs-12 ]">
+			<div class="list-group">
+				<a href="{{ path('my_money_admin_bank') }}" class="list-group-item">Banques</a>
+				<a href="{{ path('my_money_admin_category') }}" class="list-group-item">Catégories</a>
+				<a href="#" class="list-group-item">Utilisateurs</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

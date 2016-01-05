@@ -1,0 +1,13 @@
+{% extends "MYMoneyBundle::layout.html.twig" %}
+
+{% block mymoney_body %}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  		<ul class="breadcrumb">
+  			<li class="completed"><a href="{{ path('my_money_admin') }}"><i class="fa fa-cogs"></i> Administration</a></li>
+  			<li class="active">{% block title_admin %}{% endblock %}</li>
+  		</ul>
+
+      	{% block body_admin %}
+      	{% endblock %}
+  	</div>
+{% endblock %}

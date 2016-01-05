@@ -1,0 +1,50 @@
+{% extends "MYMoneyBundle::layout.html.twig" %}
+
+{% block mymoney_body %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          	<h1 class="page-header"><i class="fa fa-money {% if account.enabled %}txt-ena{% else %}txt-dis{% endif %}"></i> {{ account.name }} [N°{{ account.number }}] <span class="pull-right"><a href="#" class="btn btn-success"><i class="fa fa-plus"></i> Nouvelle entrée</a></span></h1>
+
+      		<ul class="list-group">
+      			<li class="list-group-item">Solde courant : {{ account.total }}</li>
+      			<li class="list-group-item">Solde prévisionnel : {{ account.onwait }}</li>
+      			<li class="list-group-item">Dernière mise à jour : {{ account.lastupdate|date('d M Y H:i') }}</li>
+      			<li class="list-group-item">Date de création du compte : {{ account.creationdate|date('d M Y') }}</li>
+      			<li class="list-group-item">Banque : {{ account.banks.name }}</li>
+      		</ul>
+
+			<h2 class="sub-header"><i class="fa fa-calendar-check-o"></i> Mouvements</h2>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Date valeur</th>
+							<th>Validation</th>
+							<th>Cat.</th>
+							<th>Libellé</th>
+							<th>Mode</th>
+							<th>Débit</th>
+							<th>Crédit</th>
+						</tr>
+					</thead>
+					<tbody>
+					{% for transaction in transactions %}
+						<tr>
+							<td>{{ transaction.date|date('d/m/Y') }}</td>
+							<td>{{ transaction.checkdate|date('d/m/Y') }}</td>
+							<td>{{ transaction.category.name }}</td>
+							<td>{{ transaction.name }}</td>
+							<td>{{ transaction.paymode.name }}</td>
+							{% if transaction.type == 'DEBIT' %}							
+								<td>{{ transaction.value }}</td>
+								<td></td>
+							{% else %}
+								<td></td>
+								<td>{{ transaction.value }}</td>
+							{% endif %}
+						</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+			</div>
+      	</div>
+{% endblock %}

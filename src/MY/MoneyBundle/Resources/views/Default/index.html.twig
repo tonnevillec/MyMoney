@@ -1,0 +1,76 @@
+{% extends "MYMoneyBundle::layout.html.twig" %}
+
+{% block mymoney_body %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          	<h1 class="page-header"><i class="fa fa-tachometer"></i> Synthèse<span class="pull-right"><a href="{{ path('my_money_account_add') }}" class="btn btn-success"><i class="fa fa-plus"></i> Nouveau compte</a></span></h1>
+
+			<div class="row">
+				<div class="[ col-xs-12 ]">
+					<ul class="event-list">
+						{% for account in accounts %}
+						<li>
+							<time datetime="{{ account.lastupdate|date('Y-m-d Hi') }}" class="{% if account.enabled %}bgc-ena{% else %}bgc-dis{% endif %}">
+								<span class="day">{{ account.lastupdate|date('d') }}</span>
+								<span class="month">{{ account.lastupdate|date('M') }}</span>
+								<span class="year">{{ account.lastupdate|date('Y') }}</span>
+								<span class="time">{{ account.lastupdate|date('H:i') }}</span>
+							</time>
+							<div class="info">
+								<h2 class="title"><a href="{{ path('my_money_account', {'id': account.id }) }}"><i class="fa fa-"></i> {{ account.name }}</a></h2>
+								<p class="desc">{{ account.banks.name }} : compte N° {{ account.number }}</p>
+								<ul>
+									<li>Solde courant :<br /> {{ account.total }} <span class="fa fa-eur"></span></li>
+									<li>Solde prévisionnel :<br /> {{ account.onwait }} <span class="fa fa-eur"></span></li>
+								</ul>
+							</div>
+							<div class="social">
+								<ul>
+									<li class="compte_table"><a href="{{ path('my_money_account', {'id': account.id }) }}"><span class="fa fa-table"></span></a></li>
+									<li class="compte_admin"><a href="{{ path('my_money_account_edit', {'id': account.id}) }}"><span class="fa fa-gears"></span></a></li>
+									<li class="compte_delete"><a href="{{ path('my_money_account_delete', {'id': account.id}) }}"><span class="fa fa-trash"></span></a></li>
+								</ul>
+							</div>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+
+			<h2 class="sub-header"><i class="fa fa-calendar-check-o"></i> Derniers mouvements</h2>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Date valeur</th>
+							<th>Validation</th>
+							<th>Compte</th>
+							<th>Cat.</th>
+							<th>Libellé</th>
+							<th>Mode</th>
+							<th>Débit</th>
+							<th>Crédit</th>
+						</tr>
+					</thead>
+					<tbody>
+					{% for transaction in transactions %}
+						<tr>
+							<td>{{ transaction.date|date('d/m/Y') }}</td>
+							<td>{{ transaction.checkdate|date('d/m/Y') }}</td>
+							<td>{{ transaction.account.name }}</td>
+							<td>{{ transaction.category.name }}</td>
+							<td>{{ transaction.name }}</td>
+							<td>{{ transaction.paymode.name }}</td>
+							{% if transaction.type == 'DEBIT' %}
+								<td>{{ transaction.value }}</td>
+								<td></td>
+							{% else %}
+								<td></td>
+								<td>{{ transaction.value }}</td>
+							{% endif %}
+						</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+			</div>
+      	</div>
+{% endblock %}

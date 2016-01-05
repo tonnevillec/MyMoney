@@ -1,0 +1,69 @@
+my_money_homepage:
+    path:     /
+    defaults: { _controller: MYMoneyBundle:Default:index }
+
+my_money_account:
+    path:     /account/{id}
+    defaults: { _controller: MYMoneyBundle:Account:view }
+    requirements:
+        id: \d+
+
+my_money_account_add:
+    path:     /account/add/
+    defaults: { _controller: MYMoneyBundle:Account:add }
+
+my_money_account_edit:
+    path:     /account/edit/{id}
+    defaults: { _controller: MYMoneyBundle:Account:edit }
+    requirements:
+        id: \d+
+
+my_money_account_delete:
+    path:     /account/delete/{id}
+    defaults: { _controller: MYMoneyBundle:Account:delete }
+    requirements:
+        id: \d+
+
+my_money_admin:
+    path:     /admin/
+    defaults: { _controller: MYMoneyBundle:Admin:index }
+
+my_money_admin_bank:
+    path:     /admin/bank/
+    defaults: { _controller: MYMoneyBundle:Bank:index }
+
+my_money_admin_bank_add:
+    path:     /admin/bank/add/
+    defaults: { _controller: MYMoneyBundle:Bank:add }
+
+my_money_admin_bank_edit:
+    path:     /admin/bank/edit/{id}
+    defaults: { _controller: MYMoneyBundle:Bank:edit }
+    requirements:
+        id: \d+
+
+my_money_admin_bank_delete:
+    path:     /admin/bank/delete/{id}
+    defaults: { _controller: MYMoneyBundle:Bank:delete }
+    requirements:
+        id: \d+
+
+my_money_admin_category:
+    path:     /admin/category/
+    defaults: { _controller: MYMoneyBundle:Category:index }
+
+my_money_admin_category_add:
+    path:     /admin/category/add/
+    defaults: { _controller: MYMoneyBundle:Category:add }
+
+my_money_admin_category_edit:
+    path:     /admin/category/edit/{id}
+    defaults: { _controller: MYMoneyBundle:Category:edit }
+    requirements:
+        id: \d+
+
+my_money_admin_category_delete:
+    path:     /admin/category/delete/{id}
+    defaults: { _controller: MYMoneyBundle:Category:delete }
+    requirements:
+        id: \d+
