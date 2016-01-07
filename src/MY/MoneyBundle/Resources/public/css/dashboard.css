@@ -141,3 +141,13 @@ body {
 .panel .fa,.list-group-item .fa { margin-right:5px; }
 .list-group-item:hover, a.list-group-item:focus {text-decoration: none;background-color: rgb(245, 245, 245);}
 .list-group { margin-bottom:0px; }
+
+h1.page-header{ letter-spacing: 6px; }
+
+.panel-default.panel-login {
+  opacity: 0.9;
+  margin-top:30px;
+  color: #000 !important;
+}
+.form-group.first { margin-top:5px; }
+.form-group.last { margin-bottom:5px; }
