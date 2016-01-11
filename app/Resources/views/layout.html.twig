@@ -16,9 +16,9 @@
 
         <!-- Custom styles for this template -->
     	{% stylesheets 
-    		'@MYMoneyBundle/Resources/public/css/dashboard.css'
-            '@MYMoneyBundle/Resources/public/css/evenlist.css'
-            '@MYMoneyBundle/Resources/public/css/breadcrumb.css' %}
+    		'@MYCoreBundle/Resources/public/css/dashboard.css'
+            '@MYCoreBundle/Resources/public/css/evenlist.css'
+            '@MYCoreBundle/Resources/public/css/breadcrumb.css' %}
     		<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
     	{% endstylesheets %}
     {% endblock %}
@@ -43,9 +43,9 @@
     	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         
     	{% javascripts 
-    		'@MYMoneyBundle/Resources/public/js/jquery.min.js'
-    		'@MYMoneyBundle/Resources/public/js/holder.min.js'
-    		'js/ie10-viewport-bug-workaround.js' %}
+    		'@MYCoreBundle/Resources/public/js/jquery.min.js'
+    		'@MYCoreBundle/Resources/public/js/holder.min.js'
+    		'@MYCoreBundle/Resources/public/js/ie10-viewport-bug-workaround.js' %}
     		<script type="text/javascript" src="{{ asset_url }}"></script>
     	{% endjavascripts %} 
     {% endblock %}

@@ -1,8 +1,4 @@
-{% extends "::layout.html.twig" %}
-
-{% block title %}
-  MyMoney - {{ parent() }}
-{% endblock %}
+{% extends "MYMoneyBundle::layout.html.twig" %}
 
 {% block navbar %}
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -19,13 +15,7 @@
 	    </div>
 	    <div id="navbar" class="navbar-collapse collapse">
 	      <ul class="nav navbar-nav navbar-right">
-	        <li class="dropdown">
-	        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-secret"></i> Connecté en tant que {{ app.user.username }} <span class="caret"></span></a>
-	        	<ul class="dropdown-menu">
-	        		<li><a href="{{ path('fos_user_profile_edit') }}"><i class="fa fa-pencil-square-o"></i> Edition du profil</a></li>
-	        		<li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-power-off"></i> Déconnexion</a></li>
-	        	</ul>
-	        </li>
+	        <li><a href="#"><i class="fa fa-user-secret"></i> Connecté en tant que {{ app.user.username }}</a></li>
 	        <li><a href="#"><i class="fa fa-info-circle"></i> Aide</a></li>
 	      </ul>
 	    </div>

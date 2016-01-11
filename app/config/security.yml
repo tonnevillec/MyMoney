@@ -24,8 +24,11 @@ security:
             anonymous: true
             provider: main
             form_login:
-                login_path: fos_user_security_login
+                login_path: /
                 check_path: fos_user_security_check
+                always_use_default_target_path : true
+                default_target_path: /account
+                use_referer : true                
             logout:
                 path: fos_user_security_logout
                 target: /
@@ -45,3 +48,4 @@ security:
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/account, roles: ROLE_USER }

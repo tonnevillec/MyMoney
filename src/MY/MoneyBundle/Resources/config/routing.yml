@@ -1,5 +1,5 @@
 my_money_homepage:
-    path:     /
+    path:     /account
     defaults: { _controller: MYMoneyBundle:Default:index }
 
 my_money_account:

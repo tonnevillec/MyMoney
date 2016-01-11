@@ -1,0 +1,3 @@
+my_core_homepage:
+    path:     /
+    defaults: { _controller: MYCoreBundle:Default:index }

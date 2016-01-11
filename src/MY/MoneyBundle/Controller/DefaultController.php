@@ -8,7 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        /*
         $em = $this->getDoctrine()->getManager();
         $accounts = $em->getRepository('MYMoneyBundle:Account')->findAll();
 
@@ -21,13 +20,13 @@ class DefaultController extends Controller
         		0
     		);
 
-        return $this->render('MYMoneyBundle:Default:index.html.twig', 
+        return $this->render('MYMoneyBundle:Private:index.html.twig', 
     		array(
     			'accounts'=>$accounts,
     			'transactions'=>$transactions
 			)
 		);
-        */
-        return $this->render('MYMoneyBundle:Default:index.html.twig');
+        
+        // return $this->render('MYMoneyBundle:Private:index.html.twig');
     }
 }

@@ -1,0 +1,436 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  background-color: #333;
+  color: #fff !important;
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+.navbar-inverse {
+    background-color: #333;
+    border-bottom: 1px solid #eee;
+}
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #333;
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+  color: #fff;
+}
+.nav-sidebar > li > a:hover,
+.nav-sidebar > li > a:focus {
+  color: #fff;
+  background-color: #2c3e50;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #34495e;
+}
+
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.well,
+.list-group {
+  color: #000 !important;
+}
+
+.bgc-ena{
+  background-color: #2ecc71;
+}
+.bgc-dis{
+  background-color: #c0392b;
+}
+
+.txt-ena{
+  color: #2ecc71;
+}
+.txt-dis{
+  color: #c0392b;
+}
+
+.trash { color:rgb(209, 91, 71); }
+.flag { color:rgb(248, 148, 6); }
+.panel-body { padding:0px; }
+.panel .fa,.list-group-item .fa { margin-right:5px; }
+.list-group-item:hover, a.list-group-item:focus {text-decoration: none;background-color: rgb(245, 245, 245);}
+.list-group { margin-bottom:0px; }
+
+h1.page-header{ letter-spacing: 6px; }
+
+.panel-default.panel-login {
+  opacity: 0.9;
+  margin-top:30px;
+  color: #000 !important;
+}
+.form-group.first { margin-top:5px; }
+.form-group.last { margin-bottom:5px; }
+@import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic");
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css");
+
+.event-list {
+	list-style: none;
+	font-family: 'Lato', sans-serif;
+	margin: 0px;
+	padding: 0px;
+	color: #000;	
+}
+.event-list > li {
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0px 0px 5px rgb(51, 51, 51);
+	box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);
+	padding: 0px;
+	margin: 0px 0px 20px;
+}
+.event-list > li > time {
+	display: inline-block;
+	width: 100%;
+	color: rgb(255, 255, 255);
+	/* background-color: rgb(197, 44, 102); */	
+	padding: 5px;
+	text-align: center;
+	text-transform: uppercase;
+}
+/*
+.event-list > li:nth-child(even) > time {
+	background-color: rgb(165, 82, 167);
+}
+*/
+.event-list > li > time > span {
+	display: none;
+}
+.event-list > li > time > .day {
+	display: block;
+	font-size: 40pt;
+	font-weight: 100;
+	line-height: 1;
+}
+.event-list > li time > .month {
+	display: block;
+	font-size: 19pt;
+	font-weight: 900;
+	line-height: 1;
+}
+.event-list > li time > .year {
+	display: block;
+	font-size: 18pt;
+	font-weight: 500;
+	line-height: 1;
+}
+.event-list > li > img {
+	width: 100%;
+}
+.event-list > li > .info {
+	padding-top: 5px;
+	text-align: center;
+}
+.event-list > li > .info > .title {
+	font-size: 17pt;
+	font-weight: 700;
+	margin: 0px;
+}
+.event-list > li > .info > .desc {
+	font-size: 13pt;
+	font-weight: 300;
+	margin: 0px;
+}
+.event-list > li > .info > ul,
+.event-list > li > .social > ul {
+	display: table;
+	list-style: none;
+	padding: 0px;
+	width: 100%;
+	text-align: center;
+}
+.event-list > li > .social > ul {
+	margin: 0px;
+}
+
+.event-list > li > .info > ul > li {
+	font-size: 15pt;
+	width: 50%;
+}
+.event-list > li > .social > ul > li {
+	font-size: 11pt;
+}
+.event-list > li > .info > ul > li,
+.event-list > li > .social > ul > li {
+	display: table-cell;
+	cursor: pointer;
+	color: rgb(30, 30, 30);	
+	font-weight: 300;
+    padding: 3px 0px;
+}
+.event-list > li > .info > ul > li > a {
+	display: block;
+	width: 100%;
+	color: rgb(30, 30, 30);
+	text-decoration: none;
+} 
+.event-list > li > .social > ul > li {    
+    padding: 0px;
+}
+.event-list > li > .social > ul > li > a {
+    padding: 3px 0px;
+} 
+.event-list > li > .info > ul > li:hover,
+.event-list > li > .social > ul > li:hover {
+	color: rgb(30, 30, 30);
+	background-color: rgb(200, 200, 200);
+}
+.compte_table a,
+.compte_admin a,
+.compte_delete a {
+	display: block;
+	width: 100%;
+	color: rgb(75, 110, 168) !important;
+}
+.compte_table a,
+.compte_delete a {
+	width: 33%;
+}
+.compte_admin a{
+	width: 34%;
+}
+
+.compte_admin a {
+	color: rgb(79, 213, 248) !important;
+}
+.compte_delete a {
+	color: rgb(221, 75, 57) !important;
+}
+.compte_table:hover a {
+	color: rgb(255, 255, 255) !important;
+	background-color: rgb(75, 110, 168) !important;
+}
+.compte_admin:hover a {
+	color: rgb(255, 255, 255) !important;
+	background-color: rgb(79, 213, 248) !important;
+}
+.compte_delete:hover a {
+	color: rgb(255, 255, 255) !important;
+	background-color: rgb(221, 75, 57) !important;
+}
+
+@media (min-width: 768px) {
+	.event-list > li {
+		position: relative;
+		display: block;
+		width: 100%;
+		height: 110px;
+		padding: 0px;
+	}
+	.event-list > li > time,
+	.event-list > li > img  {
+		display: inline-block;
+	}
+	.event-list > li > time,
+	.event-list > li > img {
+		width: 100px;
+		float: left;
+	}
+	.event-list > li > .info {
+		background-color: rgb(245, 245, 245);
+		overflow: hidden;
+	}
+	.event-list > li > time,
+	.event-list > li > img {
+		width: 100px;
+		height: 110px;
+		padding: 0px;
+		margin: 0px;
+	}
+	.event-list > li > .info {
+		position: relative;
+		height: 110px;
+		text-align: left;
+		padding-right: 40px;
+	}
+	.event-list > li > .info > ul > li {
+		font-size: 11pt;
+	}	
+	.event-list > li > .info > .title, 
+	.event-list > li > .info > .desc {
+		padding: 0px 10px;
+	}
+	.event-list > li > .info > ul {
+		position: relative;
+		top: 10px;
+		left: 0px;
+	}
+	.event-list > li > .social {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		display: block;
+		width: 40px;
+	}
+    .event-list > li > .social > ul {
+        border-left: 1px solid rgb(230, 230, 230);
+    }
+	.event-list > li > .social > ul > li {
+		display: block;
+        padding: 0px;
+	}
+	.event-list > li > .social > ul > li > a {
+		display: block;
+		width: 40px;
+		padding: 7px 0px 8px;
+	}
+}
+.breadcrumb {
+    padding: 0px;
+	background: #fff;
+	list-style: none; 
+	overflow: hidden;
+    margin-top: 20px;
+}
+.breadcrumb>li+li:before {
+	padding: 0;
+}
+.breadcrumb li { 
+	float: left; 
+}
+.breadcrumb li.active a {
+	background: brown;                   /* fallback color */
+	background: #ffc107 ; 
+}
+.breadcrumb li.completed a {
+	background: brown;                   /* fallback color */
+	background: hsla(153, 57%, 51%, 1); 
+}
+.breadcrumb li.active a:after {
+	border-left: 30px solid #ffc107 ;
+}
+.breadcrumb li.completed a:after {
+	border-left: 30px solid hsla(153, 57%, 51%, 1);
+} 
+
+.breadcrumb li a {
+	color: white;
+	text-decoration: none; 
+	padding: 10px 0 10px 45px;
+	position: relative; 
+	display: block;
+	float: left;
+}
+.breadcrumb li a:after { 
+	content: " "; 
+	display: block; 
+	width: 0; 
+	height: 0;
+	border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
+	border-bottom: 50px solid transparent;
+	border-left: 30px solid hsla(0, 0%, 83%, 1);
+	position: absolute;
+	top: 50%;
+	margin-top: -50px; 
+	left: 100%;
+	z-index: 2; 
+}	
+.breadcrumb li a:before { 
+	content: " "; 
+	display: block; 
+	width: 0; 
+	height: 0;
+	border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
+	border-bottom: 50px solid transparent;
+	border-left: 30px solid white;
+	position: absolute;
+	top: 50%;
+	margin-top: -50px; 
+	margin-left: 1px;
+	left: 100%;
+	z-index: 1; 
+}	
+.breadcrumb li:first-child a {
+	padding-left: 15px;
+}
+.breadcrumb li a:hover { background: #ffc107  ; }
+.breadcrumb li a:hover:after { border-left-color: #ffc107   !important; }

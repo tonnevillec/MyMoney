@@ -1,3 +1,7 @@
+my_core:
+    resource: "@MYCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
 my_user:
     resource: "@MYUserBundle/Resources/config/routing.yml"
     prefix:   /
