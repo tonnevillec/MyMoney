@@ -1,14 +1,14 @@
 {% extends "MYMoneyBundle:Admin:layout.html.twig" %}
 
 {% block title_admin %}
-	<a href="#">Banques</a>
+	<a href="#">Edition de la catégorie</a>
 {% endblock %}
 
 {% block body_admin %}
 	<div class="row">
 		<div class="[ col-xs-12 ]">
         <div class="well">
-          <form action="{{ path('my_money_admin_bank_edit', {'id': bank.id }) }}" method="post" class="form-horizontal">
+          <form action="{{ path('my_money_admin_category_edit', {'id': category.id }) }}" method="post" class="form-horizontal">
             {{ form_errors(form) }}
 
             <div class="form-group">
@@ -22,7 +22,7 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-8 text-right">
-                    <a href="{{ path('my_money_admin_bank') }}" class="btn btn-warning">Annuler</a>
+                    <a href="{{ path('my_money_admin_category') }}" class="btn btn-warning">Annuler</a>
                     <input type="submit" class="btn btn-primary" value="Enregistrer">
                 </div>
             </div>

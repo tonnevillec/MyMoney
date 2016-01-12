@@ -82,6 +82,12 @@ class Account
      */
     private $transactions;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="MY\UserBundle\Entity\User", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $users;
+
 
     public function __construct()
     {
@@ -378,5 +384,29 @@ class Account
     public function preInsert()
     {
         $this->onwait = $this->total;
+    }
+
+    /**
+     * Set users
+     *
+     * @param \MY\UserBundle\Entity\User $users
+     *
+     * @return Account
+     */
+    public function setUsers(\MY\UserBundle\Entity\User $users)
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    /**
+     * Get users
+     *
+     * @return \MY\UserBundle\Entity\User
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

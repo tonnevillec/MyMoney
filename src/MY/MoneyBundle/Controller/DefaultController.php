@@ -9,7 +9,19 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $accounts = $em->getRepository('MYMoneyBundle:Account')->findAll();
+        // Appel direct
+        /*
+        $accounts = $em
+            ->getRepository('MYMoneyBundle:Account')
+            ->findBy(
+                array('users' => $this->get('security.context')->getToken()->getUser()),
+                array(),
+                10,
+                0
+            );
+        */
+        // En passant par le service => Utilisation de la config par defaut order by date, limit 10
+        $accounts = $this->get('my_money_sidebar')->getNav($this->get('security.context')->getToken()->getUser());
 
         $transactions = $em
         	->getRepository('MYMoneyBundle:Transaction')
@@ -26,7 +38,5 @@ class DefaultController extends Controller
     			'transactions'=>$transactions
 			)
 		);
-        
-        // return $this->render('MYMoneyBundle:Private:index.html.twig');
     }
 }

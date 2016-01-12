@@ -2,7 +2,12 @@
 
 {% block mymoney_body %}
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          	<h1 class="page-header"><i class="fa fa-money {% if account.enabled %}txt-ena{% else %}txt-dis{% endif %}"></i> {{ account.name }} [N°{{ account.number }}] <span class="pull-right"><a href="#" class="btn btn-success"><i class="fa fa-plus"></i> Nouvelle entrée</a></span></h1>
+          	<h1 class="page-header">
+          		<i class="fa fa-money {% if account.enabled %}txt-ena{% else %}txt-dis{% endif %}"></i> {{ account.name }} [N°{{ account.number }}] 
+          		<span class="pull-right">
+          			<a href="#" class="btn btn-success"><i class="fa fa-plus"></i> Nouvelle entrée</a>
+          		</span>
+          	</h1>
 
       		<ul class="list-group">
       			<li class="list-group-item">Solde courant : {{ account.total }}</li>

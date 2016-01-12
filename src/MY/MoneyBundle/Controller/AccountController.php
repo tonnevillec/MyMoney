@@ -37,15 +37,15 @@ class AccountController extends Controller
     	$account = new Account();
     	$form = $this->get('form.factory')->create(new AccountType, $account);
 
-
 	    if ($form->handleRequest($request)->isValid()) {
-	      $em = $this->getDoctrine()->getManager();
-	      $em->persist($account);
-	      $em->flush();
+            $account->setUsers($this->get('security.context')->getToken()->getUser());
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($account);
+            $em->flush();
 
-	      $request->getSession()->getFlashBag()->add('notice', 'Compte créé.');
+            $request->getSession()->getFlashBag()->add('notice', 'Compte créé.');
 
-	      return $this->redirect($this->generateUrl('my_money_account', array('id' => $account->getId())));
+            return $this->redirect($this->generateUrl('my_money_account', array('id' => $account->getId())));
 	    }
 
 	    return $this->render('MYMoneyBundle:Account:add.html.twig', array(

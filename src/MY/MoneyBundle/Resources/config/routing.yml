@@ -67,3 +67,23 @@ my_money_admin_category_delete:
     defaults: { _controller: MYMoneyBundle:Category:delete }
     requirements:
         id: \d+
+
+my_money_admin_user:
+    path:     /admin/user/
+    defaults: { _controller: MYUserBundle:User:index }
+
+my_money_admin_user_add:
+    path:     /admin/user/add/
+    defaults: { _controller: MYUserBundle:User:add }
+
+my_money_admin_user_edit:
+    path:     /admin/user/edit/{id}
+    defaults: { _controller: MYUserBundle:User:edit }
+    requirements:
+        id: \d+
+
+my_money_admin_user_delete:
+    path:     /admin/user/delete/{id}
+    defaults: { _controller: MYUserBundle:User:delete }
+    requirements:
+        id: \d+

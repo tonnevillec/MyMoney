@@ -46,4 +46,51 @@ class BankController extends Controller
             'bank' => $bank
         ));
     }
+
+    public function addAction(Request $request){
+        $bank = new Bank();
+        $form = $this->get('form.factory')->create(new BankType, $bank);
+
+        if ($form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($bank);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Banque créée.');
+
+            return $this->redirect($this->generateUrl('my_money_admin_bank'));
+        }
+
+        return $this->render('MYMoneyBundle:Bank:add.html.twig', array(
+          'form' => $form->createView(),
+        ));
+    }
+
+    public function deleteAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $bank = $em->getRepository('MYMoneyBundle:Bank')->find($id);
+
+        if (null === $bank) {
+            throw new NotFoundHttpException("La banque n'existe pas.");
+        }
+
+        // On crée un formulaire vide, qui ne contiendra que le champ CSRF
+        // Cela permet de protéger la suppression des comptes contre cette faille
+        $form = $this->createFormBuilder()->getForm();
+
+        if ($form->handleRequest($request)->isValid()) {
+            $em->remove($bank);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('info', "La banque a bien été supprimée.");
+
+            return $this->redirect($this->generateUrl('my_money_admin_bank'));
+        }
+
+        return $this->render('MYMoneyBundle:Bank:delete.html.twig', array(
+            'bank' => $bank,
+            'form'   => $form->createView()
+        ));
+    }
 }

@@ -7,9 +7,27 @@
 {% block body_admin %}
 	<div class="row">
 		<div class="[ col-xs-12 ]">
-			<div class="list-group">
-				<a href="#" class="list-group-item">Liste des Catégories</a>
-			</div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="fa fa-list"></span> Liste des catégories
+                    <div class="pull-right action-buttons">
+                    	<a href="{{ path('my_money_admin_category_add') }}" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Nouvelle catégorie</a>
+                    </div>
+                </div>
+                <ul class="list-group">
+            	{% for category in categories %}
+                    <li class="list-group-item">
+                        <div>
+                        	<a href="{{ path('my_money_admin_category_edit', {'id': category.id }) }}">{{ category.name }}</a>
+                            <div class="pull-right action-buttons">
+                                <a href="{{ path('my_money_admin_category_edit', {'id': category.id }) }}"><span class="fa fa-pencil"></span></a>
+                                <a href="{{ path('my_money_admin_category_delete', {'id': category.id }) }}" class="trash"><span class="fa fa-trash"></span></a>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
 		</div>
 	</div>
 {% endblock %}

@@ -24,6 +24,16 @@ class UserController extends SecurityController {
             'csrf_token'    => $csrfToken
         ));
     }
-     
-     
+
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('MYUserBundle:User')->findAll();
+
+        return $this->render('MYUserBundle:Admin:index.html.twig', 
+            array(
+                'users'=>$users
+            )
+        );
+    }
 }

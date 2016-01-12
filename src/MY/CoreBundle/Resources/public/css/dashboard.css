@@ -151,3 +151,5 @@ h1.page-header{ letter-spacing: 6px; }
 }
 .form-group.first { margin-top:5px; }
 .form-group.last { margin-bottom:5px; }
+
+.table { color: #000 !important; }

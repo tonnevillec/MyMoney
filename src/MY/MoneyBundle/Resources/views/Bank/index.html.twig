@@ -18,7 +18,7 @@
             	{% for bank in banks %}
                     <li class="list-group-item">
                         <div>
-                        	{{ bank.name }}
+                        	<a href="{{ path('my_money_admin_bank_edit', {'id': bank.id }) }}">{{ bank.name }}</a>
                             <div class="pull-right action-buttons">
                                 <a href="{{ path('my_money_admin_bank_edit', {'id': bank.id }) }}"><span class="fa fa-pencil"></span></a>
                                 <a href="{{ path('my_money_admin_bank_delete', {'id': bank.id }) }}" class="trash"><span class="fa fa-trash"></span></a>

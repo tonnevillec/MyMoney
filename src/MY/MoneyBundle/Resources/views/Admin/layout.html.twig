@@ -1,5 +1,13 @@
 {% extends "MYMoneyBundle::layout.html.twig" %}
 
+{% block admin_sidebar %}
+    <ul class="nav nav-sidebar">        
+        <li><a href="{{ path('my_money_admin_bank') }}"><i class="fa fa-gear"></i> Banques</a></li>
+        <li><a href="{{ path('my_money_admin_category') }}"><i class="fa fa-gear"></i> Catégories</a></li>
+        <li><a href="{{ path('my_money_admin_user') }}"><i class="fa fa-gear"></i> Utilisateurs</a></li>
+    </ul>
+{% endblock %}
+
 {% block mymoney_body %}
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   		<ul class="breadcrumb">
