@@ -1,3 +1,7 @@
 my_core_homepage:
     path:     /
     defaults: { _controller: MYCoreBundle:Default:index }
+
+my_core_register:
+    path:     /register
+    defaults: { _controller: MYCoreBundle:Default:register }

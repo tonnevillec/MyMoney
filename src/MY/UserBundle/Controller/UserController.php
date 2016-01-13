@@ -7,7 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use FOS\UserBundle\Controller\SecurityController as SecurityController;
  
 use MY\UserBundle\Entity\User;
- 
+use MY\UserBundle\Form\RegisterType;
+
 /**
  * Description of UserController
  *
@@ -35,5 +36,15 @@ class UserController extends SecurityController {
                 'users'=>$users
             )
         );
+    }
+
+    public function registerBisAction()
+    {
+        $user = new User();
+        $form = $this->get('form.factory')->create(new RegisterType, $user);
+        
+        return $this->render('MYUserBundle:Security:register.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 }

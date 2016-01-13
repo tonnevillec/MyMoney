@@ -33,27 +33,6 @@ class AccountType extends AbstractType
                 'label'         => 'Valider'
                 ))
         ;
-
-        // On ajoute une fonction qui va écouter l'évènement PRE_SET_DATA
-/*        
-        $builder->addEventListener(
-            FormEvents::PRE_SET_DATA,
-            function(FormEvent $event) {
-                // On récupère notre objet Advert sous-jacent
-                $account = $event->getData();
-
-                if (null === $account) {
-                    return;
-                }
-
-                if (!$account->getEnabled() || null === $account->getId()) {
-                    $event->getForm()->add('enabled', 'checkbox', array('required' => false));
-                } else {
-                    $event->getForm()->remove('enabled');
-                }
-            }
-        );
-*/        
     }
     
     /**
